@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import testmaster.selenium.methods.Methods;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 public class HomePage {
 
     Methods methods;
@@ -31,5 +29,17 @@ public class HomePage {
         By searchLink = By.cssSelector("a[href=\"/search\"]");
         methods.clickElement(searchLink);
     }
+    public void clickAddPlaylist(){
+        By addPlaylistElement = By.cssSelector("button[data-testid=\"create-playlist-button\"]");
+        methods.clickElement(addPlaylistElement);
+    }
 
+    public void goToPlayList(String spotify_listem_esra) {
+        By searchLink = By.cssSelector("a[href=\"/collection\"]");
+        methods.clickElement(searchLink);
+        methods.waitBySeconds(3);
+        By playlist = By.cssSelector("a[title=\""+spotify_listem_esra+"\"]");
+    methods.clickElement(playlist);
+    methods.waitBySeconds(3);
+    }
 }
